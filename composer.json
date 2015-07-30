@@ -1,0 +1,13 @@
+{
+    "name": "smtech/student-feedback-review",
+    "description": "Review all feedback left for a particular student",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Seth Battis",
+            "email": "sethbattis@stmarksschool.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
