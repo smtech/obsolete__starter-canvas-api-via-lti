@@ -13,8 +13,9 @@ try {
 if (isset($_REQUEST['oauth'])) {
 	switch ($_REQUEST['oauth']) {
 		case 'request': {
-			$smarty->assign('content', '<h1>Token Request</h1>
-		<p>This application requires access to the Canvas APIs. Canvas is about to ask you to give permission for this.</p>
+			$smarty->assign('content', '<h1>Before we begin&hellip;</h1>
+		<p>' . $metadata['APP_NAME'] . ' will need to access the Canvas API to collect information for you. You will need to explicitly give this application permission to do so. This application will change none of your course data.</p>
+		<p>The next thing you see will be Canvas asking you to give this permission.</p>
 		<p><a href="' . $_SERVER['PHP_SELF'] . '?oauth=process">Click to continue</a></p>');
 			$smarty->display();
 			exit;
