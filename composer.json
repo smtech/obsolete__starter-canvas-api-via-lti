@@ -1,9 +1,39 @@
 {
     "name": "smtech/student-feedback-review",
     "description": "Review all feedback left for a particular student",
-    "license": "GPL-3.0",
-    "authors": [
-        {
+	"license": "GPL-3.0",
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "spvsoftwareproducts/LTI_Tool_Provider",
+				"version": "2.5.00",
+				"dist": {
+					"url": "http://projects.oscelot.org/gf/download/frsrelease/924/5882/LTI_Tool_Provider-2.5.00.zip",
+					"type": "zip"
+				},
+				"authors": [
+					{
+						"name": "Stephen Vickers"
+					}   
+				],
+				"homepage": "http://spvsoftwareproducts.com/php/lti_tool_provider/"
+			}
+		}
+	],
+	"require": {
+		"smtech/stmarkssmarty": "dev-master",
+		"smtech/canvaspest": "dev-master",
+		"smtech/oauth-negotiator": "1.*",
+		"battis/appmetadata": "dev-master",
+		"spvsoftwareproducts/LTI_Tool_Provider": "2.5.00",
+		"pear/log": "1.12.*"
+	},
+	"autoload": {
+		"classmap": [""]
+	},
+	"authors": [
+		{
             "name": "Seth Battis",
             "email": "sethbattis@stmarksschool.org"
         }
