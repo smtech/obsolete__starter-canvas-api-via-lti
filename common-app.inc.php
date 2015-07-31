@@ -1,5 +1,5 @@
 <?php
 	
-/* common functions for your app could go here -- it's automatically included in common.inc.php */
+$api = new CanvasPest($_SESSION['apiUrl'], $_SESSION['apiToken']);
 
 ?>

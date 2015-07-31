@@ -1,1 +1,8 @@
-/* app-specific styles could go in here */
+dt {
+	font-weight: bold;
+	margin: 1em inherit 0.25em inherit;
+}
+
+dd {
+	margin: 0.25em inherit;
+}

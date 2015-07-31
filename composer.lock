@@ -195,12 +195,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "e9d172d8ac742dea607fd42161b4cf8d2ef4855a"
+                "reference": "c5cdd90352e19f51af2b3f03b3aad1fae3abbcfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/e9d172d8ac742dea607fd42161b4cf8d2ef4855a",
-                "reference": "e9d172d8ac742dea607fd42161b4cf8d2ef4855a",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/c5cdd90352e19f51af2b3f03b3aad1fae3abbcfd",
+                "reference": "c5cdd90352e19f51af2b3f03b3aad1fae3abbcfd",
                 "shasum": ""
             },
             "require": {
@@ -242,20 +242,20 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-07-30 00:45:38"
+            "time": "2015-07-30 23:03:29"
         },
         {
             "name": "smtech/canvaspest",
-            "version": "v1.0.1",
+            "version": "v1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smtech/canvaspest.git",
-                "reference": "d5b7496467799142c783375a6efee07692029ff5"
+                "reference": "90d11eb7f85fc5f9d9019e1c4434bbaef677128d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/d5b7496467799142c783375a6efee07692029ff5",
-                "reference": "d5b7496467799142c783375a6efee07692029ff5",
+                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/90d11eb7f85fc5f9d9019e1c4434bbaef677128d",
+                "reference": "90d11eb7f85fc5f9d9019e1c4434bbaef677128d",
                 "shasum": ""
             },
             "require": {
@@ -278,7 +278,7 @@
                 }
             ],
             "description": "An extension of Pest to make RESTful queries to the Instructure Canvas API",
-            "time": "2015-07-30 02:03:21"
+            "time": "2015-07-31 00:56:40"
         },
         {
             "name": "smtech/oauth-negotiator",
