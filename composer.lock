@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "89b3d9a6fdb3ffb8b1f2255083b4ef25",
+    "hash": "3088d8022fac27502423023ecf247bd9",
     "packages": [
         {
             "name": "battis/appmetadata",
@@ -38,6 +38,39 @@
             ],
             "description": "An object to store app metadata backed by a MySQL table",
             "time": "2015-07-25 03:37:43"
+        },
+        {
+            "name": "battis/simplecache",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/battis/simplecache.git",
+                "reference": "88952d896847067aa3de41d76f271fd8171b8cc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/battis/simplecache/zipball/88952d896847067aa3de41d76f271fd8171b8cc2",
+                "reference": "88952d896847067aa3de41d76f271fd8171b8cc2",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Seth Battis",
+                    "email": "seth@battis.net"
+                }
+            ],
+            "description": "Manage a simple cache backed by a MySQL database",
+            "time": "2015-07-31 19:15:17"
         },
         {
             "name": "educoder/pest",
@@ -195,12 +228,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "c5cdd90352e19f51af2b3f03b3aad1fae3abbcfd"
+                "reference": "05a8fa245e5348c71c66172f513621ccf8205a13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/c5cdd90352e19f51af2b3f03b3aad1fae3abbcfd",
-                "reference": "c5cdd90352e19f51af2b3f03b3aad1fae3abbcfd",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/05a8fa245e5348c71c66172f513621ccf8205a13",
+                "reference": "05a8fa245e5348c71c66172f513621ccf8205a13",
                 "shasum": ""
             },
             "require": {
@@ -242,7 +275,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-07-30 23:03:29"
+            "time": "2015-08-01 12:28:39"
         },
         {
             "name": "smtech/canvaspest",
@@ -250,12 +283,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smtech/canvaspest.git",
-                "reference": "90d11eb7f85fc5f9d9019e1c4434bbaef677128d"
+                "reference": "8c4bafbe50832fcadba87c3e53c3ae9675ce2db3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/90d11eb7f85fc5f9d9019e1c4434bbaef677128d",
-                "reference": "90d11eb7f85fc5f9d9019e1c4434bbaef677128d",
+                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/8c4bafbe50832fcadba87c3e53c3ae9675ce2db3",
+                "reference": "8c4bafbe50832fcadba87c3e53c3ae9675ce2db3",
                 "shasum": ""
             },
             "require": {

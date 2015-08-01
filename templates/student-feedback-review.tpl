@@ -1,8 +1,8 @@
 {extends file="page.tpl"}
 {block name="content"}
 
-<form action="app.php" method="post" id="students">
-	<select name="user_id" onchange="students.submit()">
+<form action="app.php" method="post" id="student-selector">
+	<select name="user_id" onchange="document.getElementById('student-selector').submit()">
 		{foreach $students as $student}
 			<option value="{$student['user']['id']}"
 				{if isset($selected) && $student['user']['id'] == $selected['id']}

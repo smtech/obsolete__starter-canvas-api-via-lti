@@ -4,17 +4,21 @@ require_once('common.inc.php');
 
 /* get enrollment list */
 $course_id = $toolProvider->user->getResourceLink()->settings['custom_canvas_course_id'];
-$enrollments = $api->get("courses/$course_id/enrollments",
-	array(
-		'type' => 'StudentEnrollment',
-		'state' => 'active'
-	)
-);
+$enrollments = $cache->getCache('enrollments');
+if ($enrollments === false) {
+	$enrollments = $api->get("courses/$course_id/enrollments",
+		array(
+			'type' => 'StudentEnrollment',
+			'state' => 'active'
+		)
+	);
+	$cache->setCache('enrollments', $enrollments);
+}
 $smarty->assign('students', $enrollments);
 
 /* get selected student */
 $selected = null;
-if (isset($_REQUEST['user_id'])) {
+if (!empty($_REQUEST['user_id'])) {
 	$result = $api->get("courses/$course_id/enrollments", array('user_id' => $_REQUEST['user_id']));
 	$result->rewind();
 	if ($result->valid()) {
@@ -31,9 +35,18 @@ $smarty->assign('selected', $selected);
 /* get submissions */
 $data = array();
 if (!empty($selected)) {
-	$assignments = $api->get("courses/$course_id/assignments");
+	$assignments = $cache->getCache('assignments');
+	if ($assignments === false) {
+		$assignments = $api->get("courses/$course_id/assignments");
+		$cache->setCache('assignments', $assignments);
+	}
 	foreach ($assignments as $assignment) {
-		$submission = $api->get("courses/$course_id/assignments/{$assignment['id']}/submissions/{$selected['id']}", array('include' => 'submission_comments'));
+		$submissionKey = "assignments/{$assignment['id']}/submissions/{$selected['id']}";
+		$submission = $cache->getCache($submissionKey);
+		if ($submission === false) {
+			$submission = $api->get("courses/$course_id/$submissionKey", array('include' => 'submission_comments'));
+			$cache->setCache($submissionKey, $submission);
+		}
 		$data[] = array('assignment' => $assignment, 'submission' => $submission);
 	}
 	$smarty->assign('data', $data);
