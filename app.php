@@ -16,6 +16,22 @@ if ($enrollments === false) {
 }
 $smarty->assign('students', $enrollments);
 
+$teachers = $cache->getCache('teachers');
+if ($teachers === false) {
+	$_teachers = $api->get("courses/$course_id/enrollments",
+		array(
+			'type' => 'TeacherEnrollment',
+			'state' => 'active'
+		)
+	);
+	$teachers =  array();
+	foreach($_teachers as $teacher) {
+		$teachers[] = $teacher['user']['id'];
+	}
+	$cache->setCache('teachers', $teachers);
+}
+$smarty->assign('teachers', $teachers);
+
 /* get selected student */
 $selected = null;
 if (!empty($_REQUEST['user_id'])) {
