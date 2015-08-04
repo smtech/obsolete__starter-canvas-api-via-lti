@@ -34,13 +34,19 @@ $smarty->assign('teachers', $teachers);
 
 /* get selected student */
 $selected = null;
-if (!empty($_REQUEST['user_id'])) {
-	$result = $api->get("courses/$course_id/enrollments", array('user_id' => $_REQUEST['user_id']));
+$user_id = null;
+if ($toolProvider->user->isLearner()) {
+	$user_id = $toolProvider->user->getResourceLink()->settings['custom_canvas_user_id'];
+} elseif (!empty($_REQUEST['user_id'])) {
+	$user_id = $_REQUEST['user_id'];
+}
+if (!empty($user_id)) {
+	$result = $api->get("courses/$course_id/enrollments", array('user_id' => $user_id));
 	$result->rewind();
 	if ($result->valid()) {
 		$selected = $result->current()['user'];
 	}
-} else {
+} elseif (!$toolProvider->user->isLearner()) {
 	$enrollments->rewind();
 	if ($enrollments->valid()) {
 		$selected = $enrollments->current()['user'];

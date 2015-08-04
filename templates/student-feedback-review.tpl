@@ -2,7 +2,7 @@
 {block name="content"}
 
 
-{if isset($selected)}
+{if $isTeacher}
 	<h1>
 		<form action="app.php" method="post" id="student-selector">
 			<select name="user_id" onchange="document.getElementById('student-selector').submit()">
@@ -15,7 +15,9 @@
 			</select>
 		</form>
 	</h1>
+{/if}
 
+{if isset($selected)}
 	<div id="assignments">
 	{foreach $data as $datum}
 
