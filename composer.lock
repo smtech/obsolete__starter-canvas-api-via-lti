@@ -4,27 +4,27 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3088d8022fac27502423023ecf247bd9",
+    "hash": "8f387016c9ffec4995b4d51a36be064a",
     "packages": [
         {
             "name": "battis/appmetadata",
-            "version": "v1.0.1",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/appmetadata.git",
-                "reference": "e602656eeb297a1c385ffff5d9b2fa45d51607e3"
+                "reference": "816a4174696c596a490fc1a50f0248977d90b075"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/appmetadata/zipball/e602656eeb297a1c385ffff5d9b2fa45d51607e3",
-                "reference": "e602656eeb297a1c385ffff5d9b2fa45d51607e3",
+                "url": "https://api.github.com/repos/battis/appmetadata/zipball/99d3cbd11d615e94355f409de88240752e906ee7",
+                "reference": "816a4174696c596a490fc1a50f0248977d90b075",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    ""
-                ]
+                "psr-4": {
+                    "Battis\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -37,20 +37,62 @@
                 }
             ],
             "description": "An object to store app metadata backed by a MySQL table",
-            "time": "2015-07-25 03:37:43"
+            "time": "2015-08-16 18:55:34"
         },
         {
-            "name": "battis/simplecache",
-            "version": "v1.0",
+            "name": "battis/educoder-pest-fork",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/battis/simplecache.git",
-                "reference": "88952d896847067aa3de41d76f271fd8171b8cc2"
+                "url": "https://github.com/battis/pest.git",
+                "reference": "625347f7925d98cfc9df438b20eae77cfc33cab9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/simplecache/zipball/88952d896847067aa3de41d76f271fd8171b8cc2",
-                "reference": "88952d896847067aa3de41d76f271fd8171b8cc2",
+                "url": "https://api.github.com/repos/battis/pest/zipball/625347f7925d98cfc9df438b20eae77cfc33cab9",
+                "reference": "625347f7925d98cfc9df438b20eae77cfc33cab9",
+                "shasum": ""
+            },
+            "require": {
+                "lib-curl": "*",
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Zukowski",
+                    "email": "matt@zukowski.ca"
+                },
+                {
+                    "name": "Donald Sipe",
+                    "email": "donald.sipe@gmail.com"
+                }
+            ],
+            "description": "A proper REST client for PHP.",
+            "homepage": "https://github.com/educoder/pest",
+            "time": "2015-08-17 19:12:55"
+        },
+        {
+            "name": "battis/simplecache",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/battis/simplecache.git",
+                "reference": "0cb75651240fe0d3037ad8557f6a4fbc35bc8e71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/battis/simplecache/zipball/0cb75651240fe0d3037ad8557f6a4fbc35bc8e71",
+                "reference": "0cb75651240fe0d3037ad8557f6a4fbc35bc8e71",
                 "shasum": ""
             },
             "type": "library",
@@ -70,7 +112,7 @@
                 }
             ],
             "description": "Manage a simple cache backed by a MySQL database",
-            "time": "2015-07-31 19:15:17"
+            "time": "2015-08-13 19:32:36"
         },
         {
             "name": "educoder/pest",
@@ -228,12 +270,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "05a8fa245e5348c71c66172f513621ccf8205a13"
+                "reference": "643e6784e8d07154e88eff1ea43b2cd66a6051ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/05a8fa245e5348c71c66172f513621ccf8205a13",
-                "reference": "05a8fa245e5348c71c66172f513621ccf8205a13",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/643e6784e8d07154e88eff1ea43b2cd66a6051ae",
+                "reference": "643e6784e8d07154e88eff1ea43b2cd66a6051ae",
                 "shasum": ""
             },
             "require": {
@@ -275,24 +317,24 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-08-01 12:28:39"
+            "time": "2015-08-06 19:42:20"
         },
         {
             "name": "smtech/canvaspest",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smtech/canvaspest.git",
-                "reference": "8c4bafbe50832fcadba87c3e53c3ae9675ce2db3"
+                "reference": "204e6a8fe3a1a21dcbe594dec5b342de48e2ed1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/8c4bafbe50832fcadba87c3e53c3ae9675ce2db3",
-                "reference": "8c4bafbe50832fcadba87c3e53c3ae9675ce2db3",
+                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/204e6a8fe3a1a21dcbe594dec5b342de48e2ed1e",
+                "reference": "204e6a8fe3a1a21dcbe594dec5b342de48e2ed1e",
                 "shasum": ""
             },
             "require": {
-                "educoder/pest": "dev-master"
+                "battis/educoder-pest-fork": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -311,20 +353,20 @@
                 }
             ],
             "description": "An extension of Pest to make RESTful queries to the Instructure Canvas API",
-            "time": "2015-07-31 00:56:40"
+            "time": "2015-08-17 16:44:57"
         },
         {
             "name": "smtech/oauth-negotiator",
-            "version": "v1.1",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smtech/oauth-negotiator.git",
-                "reference": "dbc3e59a67d8c7a6a2aaefed281eba3d7652b995"
+                "reference": "fd30bc282254b605e3ff44f75f45546ef2c784c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/oauth-negotiator/zipball/dbc3e59a67d8c7a6a2aaefed281eba3d7652b995",
-                "reference": "dbc3e59a67d8c7a6a2aaefed281eba3d7652b995",
+                "url": "https://api.github.com/repos/smtech/oauth-negotiator/zipball/fd30bc282254b605e3ff44f75f45546ef2c784c3",
+                "reference": "fd30bc282254b605e3ff44f75f45546ef2c784c3",
                 "shasum": ""
             },
             "require": {
@@ -342,7 +384,40 @@
                 }
             ],
             "description": "Negotiate an OAuth 2 authentication or API token",
-            "time": "2015-07-30 04:01:06"
+            "time": "2015-08-07 16:41:35"
+        },
+        {
+            "name": "smtech/stmarks-colors",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smtech/stmarks-colors.git",
+                "reference": "978be1b0f711d0ab03f7ce15cfafddce60b12676"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smtech/stmarks-colors/zipball/978be1b0f711d0ab03f7ce15cfafddce60b12676",
+                "reference": "978be1b0f711d0ab03f7ce15cfafddce60b12676",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "smtech\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Seth Battis",
+                    "email": "sethbattis@stmarksschool.org"
+                }
+            ],
+            "description": "An object-ified, consistent set of hex colors for St. Mark’s projects",
+            "time": "2015-08-08 01:30:39"
         },
         {
             "name": "smtech/stmarkssmarty",
@@ -350,16 +425,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smtech/stmarkssmarty.git",
-                "reference": "91923538389639654a140d32b5ee3aac5869bac1"
+                "reference": "da58710978039498054117bcbd24734e2bda4b54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/stmarkssmarty/zipball/91923538389639654a140d32b5ee3aac5869bac1",
-                "reference": "91923538389639654a140d32b5ee3aac5869bac1",
+                "url": "https://api.github.com/repos/smtech/stmarkssmarty/zipball/da58710978039498054117bcbd24734e2bda4b54",
+                "reference": "da58710978039498054117bcbd24734e2bda4b54",
                 "shasum": ""
             },
             "require": {
-                "smarty/smarty": "3.1.*"
+                "smarty/smarty": "3.1.*",
+                "smtech/stmarks-colors": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -378,7 +454,7 @@
                 }
             ],
             "description": "A standard Smarty install for St. Mark's projects",
-            "time": "2015-07-27 20:02:57"
+            "time": "2015-08-08 01:47:07"
         },
         {
             "name": "spvsoftwareproducts/LTI_Tool_Provider",

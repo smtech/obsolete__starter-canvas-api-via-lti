@@ -13,11 +13,9 @@ try {
 if (isset($_REQUEST['oauth'])) {
 	switch ($_REQUEST['oauth']) {
 		case 'request': {
-			$smarty->assign('content', '<h1>Before we begin&hellip;</h1>
-		<p>' . $metadata['APP_NAME'] . ' will need to access the Canvas API to collect information for you. You will need to explicitly give this application permission to do so. This application will change none of your course data.</p>
-		<p>The next thing you see will be Canvas asking you to give this permission by &ldquo;logging in.&rdquo; Don&rsquo;t panic. The phrasing is bad, but it&rsquo;s just asking for your permission.</p>
-		<p>Click the blue <span style="background: #0080D6; color: white; border: #0080D6 solid 1px; border-radius: 3px; padding: 0.25em 1em;">Log in</span> button (on the next page, not this one).</p>
-		<p><form action="' . $_SERVER['PHP_SELF'] . '" method="post"><button type="submit" name="oauth" value="process">Continue</button></form></p>');
+			$smarty->assign('content', '<h1>Token Request</h1>
+		<p>This application requires access to the Canvas APIs. Canvas is about to ask you to give permission for this.</p>
+		<p><a href="' . $_SERVER['PHP_SELF'] . '?oauth=process">Click to continue</a></p>');
 			$smarty->display();
 			exit;
 		}

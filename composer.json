@@ -24,21 +24,21 @@
 	],
 	"require": {
 		"smtech/stmarkssmarty": "dev-master",
-		"smtech/canvaspest": "1.*",
-		"smtech/oauth-negotiator": "1.*",
-		"battis/appmetadata": "1.*",
+		"smtech/canvaspest": "~1.0",
+		"smtech/oauth-negotiator": "~1.0",
+		"battis/appmetadata": "~1.0",
 		"battis/simplecache": "1.*",
-		"spvsoftwareproducts/LTI_Tool_Provider": "2.5.*",
-		"pear/log": "1.12.*"
+		"spvsoftwareproducts/LTI_Tool_Provider": "~2.5",
+		"pear/log": "~1.12"
 	},
 	"autoload": {
 		"classmap": [""]
 	},
 	"authors": [
 		{
-            "name": "Seth Battis",
-            "email": "sethbattis@stmarksschool.org"
-        }
-    ],
-    "minimum-stability": "dev"
+			"name": "Seth Battis",
+			"email": "sethbattis@stmarksschool.org"
+		}
+	],
+	"minimum-stability": "dev"
 }
