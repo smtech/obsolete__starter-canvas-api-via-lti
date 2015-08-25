@@ -1,6 +1,6 @@
 <?php
 
-require_once('vendor/autoload.php');
+require_once(__DIR__ . '/vendor/autoload.php');
 
 define('SECRETS_FILE', __DIR__ . '/secrets.xml');
 define('SCHEMA_FILE', __DIR__ . '/admin/schema-app.sql');
@@ -16,7 +16,8 @@ use Battis\AppMetadata as AppMetadata;
  * @return boolean
  **/
 function midLaunch() {
-	return strpos($_SERVER['REQUEST_URI'], '/lti/launch.php') !== false;
+	global $metadata; // FIXME grown-ups don't program like this
+	return $metadata['APP_LAUNCH_URL'] === (($_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']);
 }
 
 /**
@@ -56,7 +57,7 @@ function initSecrets() {
  * @throws CanvasAPIviaLTI_Exception MYSQL_CONNECTION if a mysqli connection cannot be established
  **/
 function initMySql() {
-	global $secrets;	
+	global $secrets; // FIXME grown-ups don't program like this
 	if (!($secrets instanceof SimpleXMLElement)) {
 		$secrets = initSecrets();
 	}
@@ -80,13 +81,31 @@ function initMySql() {
 	return $sql;
 }
 
+/**
+ * Initialize AppMetadata
+ *
+ * @return \Battis\AppMetadata
+ **/
 function initAppMetadata() {
-	global $secrets;
-	global $sql;
+	global $secrets; // FIXME grown-ups don't program like this
+	global $sql; // FIXME grown-ups don't program like this
 	
 	$metadata = new AppMetadata($sql, (string) $secrets->app->id);
 	
 	return $metadata;
+}
+
+/**
+ * Preformat `var_dump()`
+ *
+ * @param mixed $var
+ *
+ * @return void
+ **/
+function html_var_dump($var) {
+	echo '<pre>';
+	var_dump($var);
+	echo '</pre>';
 }
 
 /*****************************************************************************
@@ -114,35 +133,47 @@ try {
 	$sql = initMySql();
 	$metadata = initAppMetadata();
 } catch (CanvasAPIviaLTI_Exception $e) {
-	$ready = false;
-	$reason = $e;
+	$smarty->addMessage(
+		'Initialization Failure',
+		$e->getMessage(),
+		NotificationMessage::ERROR
+	);
+	$smarty->display();
+	exit;
 }
 
 /* interactive initialization only */
 if ($ready && php_sapi_name() != 'cli') {
-	try {
-		if (isset($_SESSION['toolProvider'])) {
-			$toolProvider = $_SESSION['toolProvider'];
-		} else {
-			if (!midLaunch()) {
-				throw new CanvasAPIviaLTI_Exception(
-					'The LTI launch request is missing',
-					CanvasAPIviaLTI_Exception::LAUNCH_REQUEST
-				);
-			}
-		}
 		
-	} catch (CanvasAPIviaLTI_Exception $e) {
-		$ready = false;
+	/* allow web apps to use common.inc.php without LTI authentication */
+	if (!defined('IGNORE_LTI')) {
+				
+		try {
+			if (isset($_SESSION['toolProvider'])) {
+				$toolProvider = $_SESSION['toolProvider'];
+			} else {
+				if (!midLaunch()) {
+					throw new CanvasAPIviaLTI_Exception(
+						'The LTI launch request is missing',
+						CanvasAPIviaLTI_Exception::LAUNCH_REQUEST
+					);
+				}
+			}
+			
+		} catch (CanvasAPIviaLTI_Exception $e) {
+			$ready = false;
+		}
 	}
 
 	if ($ready) {
 		$smarty->addStylesheet($metadata['APP_URL'] . '/stylesheets/canvas-api-via-lti.css', 'starter-canvas-api-via-lti');
 		$smarty->addStylesheet($metadata['APP_URL'] . '/stylesheets/app.css');
 		
-		if (!midLaunch()) {
-			require_once('common-app.inc.php');
-			$smarty->assign('ltiUser', $toolProvider->user);
+		if (!midLaunch() || !defined('IGNORE_LTI')) {
+			require_once(__DIR__ . '/common-app.inc.php');
+			if (!defined('IGNORE_LTI')) {
+				$smarty->assign('ltiUser', $toolProvider->user);
+			}
 		}
 	}
 }
