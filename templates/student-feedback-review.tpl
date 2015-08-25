@@ -26,7 +26,11 @@
 			<p class="due_date">due {date('l, F j',strtotime($datum['assignment']['due_at']))}{if !empty($datum['submission']['submitted_at'])}, submitted {date('l, F j',strtotime($datum['submission']['submitted_at']))}{/if}</p>
 		
 			{foreach $datum['submission']['submission_comments'] as $comment}			
-			<p class="message{if array_search($comment['author_id'], $teachers) !== false} teacher{/if}"><span class="commenter">On {date('l, F j', strtotime($comment['created_at']))}, {$comment['author_name']} wrote:</span> <span class="comment">{$comment['comment']}</span></p>
+			<p class="message{if array_search($comment['author_id'], $teachers) !== false} teacher{/if}"><span class="commenter">On {date('l, F j', strtotime($comment['created_at']))}, {$comment['author_name']} wrote:</span> <span class="comment">
+				{foreach explode("\n", $comment['comment']) as $paragraph}
+					<p>{$paragraph}</p>
+				{/foreach}
+				</span></p>
 			{/foreach}
 		</div>
 
