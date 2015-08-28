@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8f387016c9ffec4995b4d51a36be064a",
+    "hash": "0bb823696c9dbdb5c22e60048ee3e99e",
     "packages": [
         {
             "name": "battis/appmetadata",
@@ -38,6 +38,39 @@
             ],
             "description": "An object to store app metadata backed by a MySQL table",
             "time": "2015-08-17 19:58:28"
+        },
+        {
+            "name": "battis/data-utilities",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/battis/data-utilities.git",
+                "reference": "14f3d457ebc7b661c4c42596d0567dc85bab9e2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/battis/data-utilities/zipball/14f3d457ebc7b661c4c42596d0567dc85bab9e2a",
+                "reference": "14f3d457ebc7b661c4c42596d0567dc85bab9e2a",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Battis\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Seth Battis",
+                    "email": "sethbattis@stmarksschool.org"
+                }
+            ],
+            "description": "A handful of useful helper functions to process data",
+            "time": "2015-08-27 20:31:48"
         },
         {
             "name": "battis/educoder-pest-fork",
@@ -157,6 +190,57 @@
             "time": "2014-09-02 15:51:33"
         },
         {
+            "name": "michelf/php-markdown",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michelf/php-markdown.git",
+                "reference": "e1aabe18173231ebcefc90e615565742fc1c7fd9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/e1aabe18173231ebcefc90e615565742fc1c7fd9",
+                "reference": "e1aabe18173231ebcefc90e615565742fc1c7fd9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-lib": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Michelf": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "John Gruber",
+                    "homepage": "http://daringfireball.net/"
+                },
+                {
+                    "name": "Michel Fortin",
+                    "email": "michel.fortin@michelf.ca",
+                    "homepage": "https://michelf.ca/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Markdown",
+            "homepage": "https://michelf.ca/projects/php-markdown/",
+            "keywords": [
+                "markdown"
+            ],
+            "time": "2015-03-01 12:03:08"
+        },
+        {
             "name": "pear/log",
             "version": "1.12.9",
             "source": {
@@ -270,12 +354,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "3ba86e8d913583ea59d9b5980d2f08dae2a778a5"
+                "reference": "31a7162fbaebf5639a4c673ab41b9f1df7be27b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/3ba86e8d913583ea59d9b5980d2f08dae2a778a5",
-                "reference": "3ba86e8d913583ea59d9b5980d2f08dae2a778a5",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/31a7162fbaebf5639a4c673ab41b9f1df7be27b3",
+                "reference": "31a7162fbaebf5639a4c673ab41b9f1df7be27b3",
                 "shasum": ""
             },
             "require": {
@@ -317,7 +401,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-08-23 17:58:27"
+            "time": "2015-08-27 17:26:49"
         },
         {
             "name": "smtech/canvaspest",
@@ -425,17 +509,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smtech/stmarkssmarty.git",
-                "reference": "d9e7829ba0d017f67b42c4d97fadafd6a3ba1153"
+                "reference": "71e3cc71a1f81c2b8bdb298b53bc183728c66af9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/stmarkssmarty/zipball/d9e7829ba0d017f67b42c4d97fadafd6a3ba1153",
-                "reference": "d9e7829ba0d017f67b42c4d97fadafd6a3ba1153",
+                "url": "https://api.github.com/repos/smtech/stmarkssmarty/zipball/71e3cc71a1f81c2b8bdb298b53bc183728c66af9",
+                "reference": "71e3cc71a1f81c2b8bdb298b53bc183728c66af9",
                 "shasum": ""
             },
             "require": {
+                "battis/data-utilities": "dev-master",
                 "smarty/smarty": "3.1.*",
                 "smtech/stmarks-colors": "dev-master"
+            },
+            "suggest": {
+                "battis/appmetadata": "MySQL-backed globals array for app metadata storage",
+                "eternicode/bootstrap-datepicker": "The full Bootstrap Datepicker package for local install"
             },
             "type": "library",
             "autoload": {
@@ -454,7 +543,7 @@
                 }
             ],
             "description": "A standard Smarty install for St. Mark's projects",
-            "time": "2015-08-25 01:21:05"
+            "time": "2015-08-26 19:31:34"
         },
         {
             "name": "spvsoftwareproducts/LTI_Tool_Provider",

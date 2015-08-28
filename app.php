@@ -67,6 +67,10 @@ if (!empty($selected)) {
 		$submission = $cache->getCache($submissionKey);
 		if ($submission === false) {
 			$submission = $api->get("courses/$course_id/$submissionKey", array('include' => 'submission_comments'));
+			$submission = $submission->getArrayCopy();
+			foreach ($submission['submission_comments'] as $key => $comment) {
+				$submission['submission_comments'][$key]['comment'] = \Michelf\Markdown::defaultTransform($comment['comment']);
+			}
 			$cache->setCache($submissionKey, $submission);
 		}
 		$data[] = array('assignment' => $assignment, 'submission' => $submission);

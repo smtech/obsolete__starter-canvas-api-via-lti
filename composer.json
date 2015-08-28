@@ -29,7 +29,8 @@
 		"battis/appmetadata": "~1.0",
 		"battis/simplecache": "1.*",
 		"spvsoftwareproducts/LTI_Tool_Provider": "~2.5",
-		"pear/log": "~1.12"
+		"pear/log": "~1.12",
+		"michelf/php-markdown": "~1.5"
 	},
 	"autoload": {
 		"classmap": [""]

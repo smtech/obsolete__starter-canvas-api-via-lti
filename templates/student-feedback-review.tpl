@@ -1,40 +1,48 @@
 {extends file="page.tpl"}
 {block name="content"}
 
-
-{if $isTeacher}
-	<h1>
-		<form action="app.php" method="post" id="student-selector">
-			<select name="user_id" onchange="document.getElementById('student-selector').submit()">
-				{foreach $students as $student}
-					<option value="{$student['user']['id']}"
-						{if isset($selected) && $student['user']['id'] == $selected['id']}
-							selected
-						{/if}>{$student['user']['name']}</option>
-				{/foreach}
-			</select>
-		</form>
+<div class="container page-header">
+	<h1>Feedback Review
+		<small>
+			{foreach $students as $student}
+				{if isset($selected) && $student['user']['id'] == $selected['id']}
+					{$student['user']['name']}
+				{/if}
+			{/foreach}
+		</small>
 	</h1>
-{/if}
+</div>
 
 {if isset($selected)}
-	<div id="assignments">
-	{foreach $data as $datum}
-
-		<div class="assignment{if empty($datum['submission']['submission_comments'])} no-feedback{/if}">
-			<p class="title">{$datum['assignment']['name']} <a class="preview" href="{array_shift(explode('?', $datum['submission']['preview_url']))}" target="_top">&#x1f50d; More</a></p>
-			<p class="due_date">due {date('l, F j',strtotime($datum['assignment']['due_at']))}{if !empty($datum['submission']['submitted_at'])}, submitted {date('l, F j',strtotime($datum['submission']['submitted_at']))}{/if}</p>
+	<div class="container">
+		{foreach $data as $datum}
+			<div class="panel {if empty($datum['submission']['submission_comments'])}panel-default{else}panel-primary{/if}">
+				<div class="panel-heading">
+					{$datum['assignment']['name']}
+					<small>
+						due {date('l, F j',strtotime($datum['assignment']['due_at']))}{if !empty($datum['submission']['submitted_at'])},
+							submitted {date('l, F j',strtotime($datum['submission']['submitted_at']))}
+						{/if}
+					</small>
+					<div class="pull-right">
+						<a class="btn btn-xs {if empty($datum['submission']['submission_comments'])}btn-default{else}btn-info{/if}" href="{array_shift(explode('?', $datum['submission']['preview_url']))}" target="_top">
+							<span class="glyphicon glyphicon-zoom-in"></span> Details
+						</a>
+					</div>
+				</div>
 		
-			{foreach $datum['submission']['submission_comments'] as $comment}			
-			<p class="message{if array_search($comment['author_id'], $teachers) !== false} teacher{/if}"><span class="commenter">On {date('l, F j', strtotime($comment['created_at']))}, {$comment['author_name']} wrote:</span> <span class="comment">
-				{foreach explode("\n", $comment['comment']) as $paragraph}
-					<p>{$paragraph}</p>
-				{/foreach}
-				</span></p>
-			{/foreach}
-		</div>
-
-	{/foreach}
+				{if !empty($datum['submission']['submission_comments'])}
+					<div class="panel-body">
+						{foreach $datum['submission']['submission_comments'] as $comment}			
+							<div class="alert {if array_search($comment['author_id'], $teachers) !== false}alert-warning{/if}">
+								<p><small>On {date('l, F j', strtotime($comment['created_at']))}, {$comment['author_name']} wrote:</small></p>
+								{$comment['comment']}
+							</div>
+						{/foreach}
+					</div>
+				{/if}
+			</div>
+		{/foreach}
 	</div>
 
 {else}
