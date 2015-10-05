@@ -16,16 +16,24 @@
 {if isset($selected)}
 	<div class="container">
 		{foreach $data as $datum}
-			<div class="panel {if empty($datum['submission']['submission_comments'])}panel-default{else}panel-primary{/if}">
+			{if empty($datum['submission']['submission_comments'])}
+				{assign var="panelColor" value="default"}
+				{assign var="commentsAvailable" value=false}
+			{else}
+				{assign var="panelColor" value="primary"}
+				{assign var="commentsAvailable" value=true}
+			{/if}
+			<div class="panel panel-{$panelColor}">
 				<div class="panel-heading">
 					{$datum['assignment']['name']}
 					<small>
-						due {date('l, F j',strtotime($datum['assignment']['due_at']))}{if !empty($datum['submission']['submitted_at'])},
+						due {date('l, F j',strtotime($datum['assignment']['due_at']))}{if $commentsAvailable},
 							submitted {date('l, F j',strtotime($datum['submission']['submitted_at']))}
 						{/if}
 					</small>
 					<div class="pull-right">
-						<a class="btn btn-xs {if empty($datum['submission']['submission_comments'])}btn-default{else}btn-info{/if}" href="{array_shift(explode('?', $datum['submission']['preview_url']))}" target="_top">
+						<button class="btn btn-xs btn-{$panelColor} has-spinner" value="{$datum['key']}" onclick="studentFeedbackReview.refreshCache(this.value);">Refresh <span class="spinner"><i class="fa fa-refresh fa-spin"></i></span></button>
+						<a class="btn btn-xs btn-{$panelColor}" href="{array_shift(explode('?', $datum['submission']['preview_url']))}" target="_top">
 							<span class="glyphicon glyphicon-zoom-in"></span> Details
 						</a>
 					</div>
@@ -48,5 +56,7 @@
 {else}
 	<p>Select a student for whom you would like to review your feedback.</p>
 {/if}
+
+<script src="{$metadata['APP_URL']}/js/student-feedback-review.js.php"></script>
 
 {/block}

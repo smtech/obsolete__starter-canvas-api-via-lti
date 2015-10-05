@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "0bb823696c9dbdb5c22e60048ee3e99e",
+    "content-hash": "9009268b37e53a0a7b7e1719308c61ae",
     "packages": [
         {
             "name": "battis/appmetadata",
@@ -116,16 +117,16 @@
         },
         {
             "name": "battis/simplecache",
-            "version": "v1.1",
+            "version": "v1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/simplecache.git",
-                "reference": "0cb75651240fe0d3037ad8557f6a4fbc35bc8e71"
+                "reference": "2116d33def68ebf3d2a2ad4afd2970077115d801"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/simplecache/zipball/0cb75651240fe0d3037ad8557f6a4fbc35bc8e71",
-                "reference": "0cb75651240fe0d3037ad8557f6a4fbc35bc8e71",
+                "url": "https://api.github.com/repos/battis/simplecache/zipball/2116d33def68ebf3d2a2ad4afd2970077115d801",
+                "reference": "2116d33def68ebf3d2a2ad4afd2970077115d801",
                 "shasum": ""
             },
             "type": "library",
@@ -145,7 +146,7 @@
                 }
             ],
             "description": "Manage a simple cache backed by a MySQL database",
-            "time": "2015-08-13 19:32:36"
+            "time": "2015-10-05 15:13:09"
         },
         {
             "name": "educoder/pest",
@@ -354,12 +355,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "31a7162fbaebf5639a4c673ab41b9f1df7be27b3"
+                "reference": "64464e8fbe79e9e314cf9406299cc3c2c22233d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/31a7162fbaebf5639a4c673ab41b9f1df7be27b3",
-                "reference": "31a7162fbaebf5639a4c673ab41b9f1df7be27b3",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/64464e8fbe79e9e314cf9406299cc3c2c22233d9",
+                "reference": "64464e8fbe79e9e314cf9406299cc3c2c22233d9",
                 "shasum": ""
             },
             "require": {
@@ -401,7 +402,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-08-27 17:26:49"
+            "time": "2015-09-19 17:55:14"
         },
         {
             "name": "smtech/canvaspest",

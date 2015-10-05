@@ -63,17 +63,20 @@ if (!empty($selected)) {
 		$cache->setCache('assignments', $assignments);
 	}
 	foreach ($assignments as $assignment) {
-		$submissionKey = "assignments/{$assignment['id']}/submissions/{$selected['id']}";
-		$submission = $cache->getCache($submissionKey);
-		if ($submission === false) {
-			$submission = $api->get("courses/$course_id/$submissionKey", array('include' => 'submission_comments'));
-			$submission = $submission->getArrayCopy();
-			foreach ($submission['submission_comments'] as $key => $comment) {
-				$submission['submission_comments'][$key]['comment'] = \Michelf\Markdown::defaultTransform($comment['comment']);
+		/* ignore unpublished assignments */
+		if ($assignment['published']) {
+			$submissionKey = "assignments/{$assignment['id']}/submissions/{$selected['id']}";
+			$submission = $cache->getCache($submissionKey);
+			if ($submission === false) {
+				$submission = $api->get("courses/$course_id/$submissionKey", array('include' => 'submission_comments'));
+				$submission = $submission->getArrayCopy();
+				foreach ($submission['submission_comments'] as $key => $comment) {
+					$submission['submission_comments'][$key]['comment'] = \Michelf\Markdown::defaultTransform($comment['comment']);
+				}
+				$cache->setCache($submissionKey, $submission);
 			}
-			$cache->setCache($submissionKey, $submission);
+			$data[] = array('key' => $cache->getHierarchicalKey($submissionKey), 'assignment' => $assignment, 'submission' => $submission);
 		}
-		$data[] = array('assignment' => $assignment, 'submission' => $submission);
 	}
 	$smarty->assign('data', $data);
 }
