@@ -2,7 +2,7 @@
 
 Review all feedback left for a particular student
 
-[![Screenshot](doc/screenshot.png)]
+![Screenshot](doc/screenshot.png)
 
 This API-driven LTI (built using the [Canvas APi via LTI Starter](https://github.com/smtech/starter-canvas-api-via-lti)) presents students and teachers with all of their assignment feedback as a single narrative, rather than broken into discrete chunks across assignments. This provides the capability for learners and teachers to review this feedback as an extended conversation over the length of a course.
 
