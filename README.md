@@ -1,6 +1,6 @@
 # Obsolete
 
-This package has been abandoned in favor of the more up-to-date (and user-friendly) [smtech/reflexive-canvas-lti](https://github.com/smtech/reflexive-canvas-lti) (or the even more capable, albeit more idiosyncratic, [smtech/stmarks-reflexive-canvas-lti][https://github.com/smtech/stmarks-reflexive-canvas-lti).)
+This package has been abandoned in favor of the more up-to-date (and user-friendly) [smtech/reflexive-canvas-lti](https://github.com/smtech/reflexive-canvas-lti) (or the even more capable, albeit more idiosyncratic, [smtech/stmarks-reflexive-canvas-lti](https://github.com/smtech/stmarks-reflexive-canvas-lti).)
 
 # Canvas API via LTI (Starter)
 
