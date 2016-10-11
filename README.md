@@ -1,3 +1,7 @@
+# Obsolete
+
+This package has been abandoned in favor of the more up-to-date (and user-friendly) [smtech/reflexive-canvas-lti](https://github.com/smtech/reflexive-canvas-lti).
+
 # Canvas API via LTI (Starter)
 
 This is a starter template for projects that want to…
